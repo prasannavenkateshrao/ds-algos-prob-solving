@@ -27,5 +27,5 @@ function stockPicker(arr) {
     })
      return maxProfit;
    }
-   //console.log(stockPicker([10,12,4,5,9]));
+   console.log(stockPicker([10,12,4,5,9]));
    module.exports = { stockPicker };
