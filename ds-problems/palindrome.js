@@ -13,3 +13,6 @@ console.log(isPalindrome("racecar"));
 
 let isStringPalindrome = 'malayalam'.split('').reverse().join('') === 'malayalam';
 console.log(isStringPalindrome);
+
+let val = 'stringdata';
+console.log(val[0]);
