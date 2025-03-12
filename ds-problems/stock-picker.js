@@ -11,21 +11,20 @@ Output: 8.
 
 function stockPicker(arr) { 
 
-    if(arr?.length < 2) return -1;
-    let minPrice = arr[0];
-    let maxProfit = -1;
-    arr.forEach((price,index)=>{
-      if(index === 0) return -1;
-      if(price < minPrice){
-        minPrice = price;
-      }else{
-        const profit = price - minPrice;
+    if(arr.length < 2) return -1;
+    var minValue = arr[0];
+    var maxProfit = -1;
+    for(const price of arr){
+      if(price < minValue){
+        minValue = price;
+      }else {
+        const profit = price - minValue;
         if(profit > maxProfit){
           maxProfit = profit;
         }
       }
-    })
-     return maxProfit;
+    }
+    return maxProfit;
    }
-   console.log(stockPicker([10,12,4,5,9]));
+   console.log(stockPicker([14,20,4,12,5,11]));
    module.exports = { stockPicker };
