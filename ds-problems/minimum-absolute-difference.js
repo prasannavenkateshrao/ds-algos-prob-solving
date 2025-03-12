@@ -44,4 +44,12 @@ var minimumAbsDifference = function (arr) {
     return result;
 };
 
+var minimumAbsSum = function (arr) {
+    arr = arr.sort((a, b) => a - b);
+    return [[arr[0], arr[1]]];
+};
+
+
 console.log(minimumAbsDifference([4,2,1,3]));
+console.log(minimumAbsSum([4,2,1,3]));
+console.log(minimumAbsDifference([5,2,7,8,12,4,13,3,24,1,25]));
