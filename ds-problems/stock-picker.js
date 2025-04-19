@@ -10,15 +10,13 @@ Output: 8.
 */
 
 function stockPicker(arr) { 
-
-    if(arr.length < 2) return -1;
     var minValue = arr[0];
-    var maxProfit = -1;
-    for(const price of arr){
-      if(price < minValue){
-        minValue = price;
+    var maxProfit = 0;
+    for(let i=0;i < arr.length; i+=5){
+      if(arr[i] < minValue){
+        minValue = arr[i];
       }else {
-        const profit = price - minValue;
+        const profit = arr[i] - minValue;
         if(profit > maxProfit){
           maxProfit = profit;
         }
@@ -28,3 +26,22 @@ function stockPicker(arr) {
    }
    console.log(stockPicker([14,20,4,12,5,11]));
    module.exports = { stockPicker };
+
+   function stockPickerNew(arr) { 
+    let minValue = Infinity; // Store the minimum valid buying price
+    let maxProfit = 0;
+
+    for (let i = 5; i < arr.length; i++) { // Start from index 5 to ensure valid selling
+        minValue = Math.min(minValue, ...arr.slice(0, i - 4)); // Track lowest valid buy price
+        
+        let profit = arr[i] - minValue;
+        maxProfit = Math.max(maxProfit, profit);
+    }
+
+    return maxProfit;
+}
+
+// Test case
+let prices = [10, 20, 30, 40, 60, 80, 100, 200, 400];
+console.log(stockPickerNew(prices)); // Output: 360 (buy at 40, sell at 400)
+

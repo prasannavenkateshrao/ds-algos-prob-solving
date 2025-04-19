@@ -25,7 +25,7 @@ function simplePassword(str) {
     /^(?!.*password)/i              // Does NOT contain the word "password" (case-insensitive)
   ];
   const isValidPassword = passwordValidation.every((regEx) => regEx.test(str));
-  return isValidPassword.toString();
+  return isValidPassword;
 }
-//console.log(simplePassword("passWord123!!!!"));
+console.log(simplePassword("turkey90AAA="));
 module.exports = { simplePassword };

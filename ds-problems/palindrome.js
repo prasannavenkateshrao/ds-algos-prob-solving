@@ -27,6 +27,25 @@ var palindromeWithChars = function(s) {
     }
     return true;
 }
+var palindromeOptimal = function(s) {
+    var left = 0, right = s.length -1;
+    while(left < right && !isAlphaNumberic(s[left])) {
+        left++;
+    } 
+    while(left < right && !isAlphaNumberic(s[right])) {
+        right--;
+    }
+    if(s[left].toLowerCase() !== s[right].toLowerCase()) {
+        return false;
+    }
+    left++;
+    right--;
+    return s;
+}
+var isAlphaNumberic = function(string){
+    return /[a-zA-Z]/i.test(string);
+}
+console.log('special chars palindrome,',palindromeOptimal('A man, a plan, a canal: Panama'));
 console.log(palindromeWithChars("A man, a plan, a canal: Panama"));
 console.log(palindromeWithChars("race a car"));
 console.log(palindromeWithChars("No lemon, no melon"));
